@@ -1,21 +1,40 @@
-# Directory description
+# WaveID
+A Music Identifier based on Vector Quantization and Applied Clustering
 
- - **wavFiles:** examples of original songs, in stereo
+## Description
 
- - **wavMonoFiles:** conversion of the original songs to mono and quantized songs
+The programs implemented in C++ have the purpose of analysing and encoding audio files and ultimately being capable of, from a small audio segment, identifying the music that it most likely belongs to.
 
- - **sampleTests:** music segments already pre-processed and ready to be used as query musics
+Along with the description of the solution, we also discuss the effects of the variation of the programs’ parameters and how accurate are the results. 
 
- - **codebook:** codebook examples
+## Repository Structure
 
- - **report:** written report explaining our design choices, presenting results from
- parameter variation and conclusions of those results
+/codebook    - codebook examples
 
- - **src:** source code
+/report      - written report explaining our design choices, presenting results from parameter variation and conclusions of those results
 
- - **build:** compiled files
+/sampleTests - audio segments already pre-processed and ready to be used as query songs
 
-# Main programs description
+/wavFiles    - audio dataset of song clips, in stereo
+
+## Data Visualization
+
+<p float="left">
+  <img src="https://github.com/FilipePires98/WaveID/blob/master/report/sample01_stereo_1.png" width="360px">
+  <img src="https://github.com/FilipePires98/WaveID/blob/master/report/sample01_16_1.png" width="360px">
+</p>
+
+Histograms before and after conversion to mono.
+
+<img src="https://github.com/FilipePires98/WaveID/blob/master/report/stanford_quantization_wide.png" width="720px">
+
+Example of a quantized waveform.
+
+<img src="https://github.com/FilipePires98/WaveID/blob/master/report/pointsEx.png" width="540px">
+
+Example of a 3-D visualization of point clusters
+
+## Main Programs
 
  - **wavhist:** generates a histogram of a channel from the signal provided, possibly being the channel 0 or 1 if the signal is stereo or 0 if the signal is mono
 
@@ -27,13 +46,9 @@
 
  - **wavfind:** given a query music segment, it's predicted the music to which it belongs
 
-# How to run and build
+## Instructions to Build and Run 
 
-In the root folder of this project("proj2"), following command will compile all the scripts and store them in the "build" folder:
-
-`$ make`
-
-Some examples are :
+  Build:   `$ make`
 
 - **Visualize the frequency signature of the sample01 in mono:**
 
@@ -59,7 +74,12 @@ Some examples are :
 
   Run:     `$ ./build/wavfind sampleTests/sampleTest.wav 200 0.1 codebook`
   
-  
-Majority of the scripts have mandatory arguments. To have information about them call them without parameters,like:
+Majority of the scripts have mandatory arguments. To have information about them call them without parameters, like:
 
 `$ ./build/<script_name>`
+
+## Authors
+
+The authors of this repository are André Pedrosa, Filipe Pires and João Alegria, and the project was developed for the Algorithmic Theory of Information Course of the Master's degree in Informatics Engineering of the University of Aveiro.
+
+For further information, please read our [report](https://github.com/FilipePires98/WaveID/blob/master/report/report.pdf).
